@@ -1,7 +1,7 @@
 services:
   web:
     environment:
-      DJANGO_ALLOWED_HOSTS: test.sigma.dberan.dev,localhost,127.0.0.1
+      DJANGO_ALLOWED_HOSTS: sigma-test.dberan.dev,localhost,127.0.0.1
 
   mqtt-worker:
     environment:
