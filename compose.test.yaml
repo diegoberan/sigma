@@ -1,0 +1,10 @@
+services:
+  web:
+    ports:
+      - "127.0.0.1:8091:8000"
+    environment:
+      DJANGO_ALLOWED_HOSTS: test.sigma.dberan.dev,localhost,127.0.0.1
+
+  mqtt-worker:
+    environment:
+      MQTT_CLIENT_ID: sigma-test-mqtt-worker
