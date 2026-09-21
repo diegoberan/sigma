@@ -92,8 +92,8 @@ Os serviços são:
 - `db`: PostgreSQL com volume local.
 
 O worker usa as variáveis `MQTT_HOST`, `MQTT_PORT`, `MQTT_TOPIC` e credenciais
-opcionais. O payload bruto é preservado; os três valores ainda sem semântica
-confirmada ficam como `value_1`, `value_2` e `value_3`.
+opcionais. O payload bruto é preservado e os campos confirmados são gravados como
+`uptime_seconds`, `temperature_c` e `humidity_percent`.
 
 ## Fluxo MQTT inicial
 

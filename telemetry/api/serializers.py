@@ -21,8 +21,8 @@ class TelemetryReadingSerializer(serializers.ModelSerializer):
             "payload_raw",
             "latitude",
             "longitude",
-            "value_1",
-            "value_2",
-            "value_3",
+            "uptime_seconds",
+            "temperature_c",
+            "humidity_percent",
             "received_at",
         )

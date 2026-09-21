@@ -12,9 +12,9 @@ class TelemetryRepository:
         payload_raw: str,
         latitude: Decimal,
         longitude: Decimal,
-        value_1: str,
-        value_2: str,
-        value_3: str,
+        uptime_seconds: int,
+        temperature_c: Decimal,
+        humidity_percent: Decimal,
     ) -> TelemetryReading:
         return TelemetryReading.objects.create(
             device=device,
@@ -22,7 +22,7 @@ class TelemetryRepository:
             payload_raw=payload_raw,
             latitude=latitude,
             longitude=longitude,
-            value_1=value_1,
-            value_2=value_2,
-            value_3=value_3,
+            uptime_seconds=uptime_seconds,
+            temperature_c=temperature_c,
+            humidity_percent=humidity_percent,
         )

@@ -22,7 +22,7 @@ class TelemetryIngestionService:
             payload_raw=raw_payload,
             latitude=parsed.latitude,
             longitude=parsed.longitude,
-            value_1=parsed.value_1,
-            value_2=parsed.value_2,
-            value_3=parsed.value_3,
+            uptime_seconds=parsed.uptime_seconds,
+            temperature_c=parsed.temperature_c,
+            humidity_percent=parsed.humidity_percent,
         )

@@ -12,7 +12,7 @@ class DeviceAdmin(admin.ModelAdmin):
 
 @admin.register(TelemetryReading)
 class TelemetryReadingAdmin(admin.ModelAdmin):
-    list_display = ("device", "topic", "value_1", "value_2", "value_3", "received_at")
+    list_display = ("device", "topic", "uptime_seconds", "temperature_c", "humidity_percent", "received_at")
     search_fields = ("device__external_id", "topic", "payload_raw")
     list_filter = ("device",)
     readonly_fields = ("received_at",)

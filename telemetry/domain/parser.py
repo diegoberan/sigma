@@ -11,9 +11,9 @@ class ParsedTelemetry:
     device_id: str
     latitude: Decimal
     longitude: Decimal
-    value_1: str
-    value_2: str
-    value_3: str
+    uptime_seconds: int
+    temperature_c: Decimal
+    humidity_percent: Decimal
 
 
 def parse_payload(raw_payload: str) -> ParsedTelemetry:
@@ -24,14 +24,20 @@ def parse_payload(raw_payload: str) -> ParsedTelemetry:
     try:
         latitude = Decimal(fields[1])
         longitude = Decimal(fields[2])
-    except InvalidOperation as exc:
-        raise PayloadParseError("latitude and longitude must be decimal values") from exc
+        uptime_seconds = int(fields[3])
+        temperature_c = Decimal(fields[4])
+        humidity_percent = Decimal(fields[5])
+    except (InvalidOperation, ValueError) as exc:
+        raise PayloadParseError("invalid numeric telemetry field") from exc
+
+    if uptime_seconds < 0:
+        raise PayloadParseError("uptime_seconds cannot be negative")
 
     return ParsedTelemetry(
         device_id=fields[0],
         latitude=latitude,
         longitude=longitude,
-        value_1=fields[3],
-        value_2=fields[4],
-        value_3=fields[5],
+        uptime_seconds=uptime_seconds,
+        temperature_c=temperature_c,
+        humidity_percent=humidity_percent,
     )

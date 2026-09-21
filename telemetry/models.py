@@ -24,9 +24,9 @@ class TelemetryReading(models.Model):
     payload_raw = models.TextField()
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
-    value_1 = models.CharField(max_length=120)
-    value_2 = models.CharField(max_length=120)
-    value_3 = models.CharField(max_length=120)
+    uptime_seconds = models.PositiveIntegerField()
+    temperature_c = models.DecimalField(max_digits=6, decimal_places=2)
+    humidity_percent = models.DecimalField(max_digits=6, decimal_places=2)
     received_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
